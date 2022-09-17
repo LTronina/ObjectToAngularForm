@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConverterComponent } from './converter.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -9,7 +10,7 @@ import { ConverterComponent } from './converter.component';
     ConverterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,SharedModule
   ],
   exports:[ConverterComponent]
 })

@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ConverterModule } from './converter/converter/converter.module';
+import { ConverterModule } from './converter/converter.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,ConverterModule
+    BrowserModule,ConverterModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
