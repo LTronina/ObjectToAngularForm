@@ -2,6 +2,27 @@ body {
   background-color: whitesmoke;
 }
 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.ms-5 {
+  margin-left: 5rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.me-3 {
+  margin-right: 3rem;
+}
+
+.mat-raised-button.me-2 {
+  margin-right: 2rem;
+}

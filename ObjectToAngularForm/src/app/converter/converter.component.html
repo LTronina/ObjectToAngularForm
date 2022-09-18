@@ -1,41 +1,61 @@
 <h2 class="mb-3">Convert Json to Angular reactive form.</h2>
+<div style="max-width: 1000px; margin-top: 50px">
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Configuration </mat-panel-title>
+      <mat-panel-description >Set JSON and form settings </mat-panel-description>
+    </mat-expansion-panel-header>
 
-<div style="max-width: 1000px; margin-top:50px">
+    <div class="container">
+      <div class="cont-col">
+        <p>JSON</p>
+        <textarea name="source" id="source" cols="60" rows="10" style="display: block" [ngModel]="sampleForm | json"
+          (ngModelChange)="objectChange($event)"></textarea>
+      </div>
+      <div class="cont-col">
+        <p>Form settings</p>
+        <ng-container *ngFor="let entry of config | keyvalue">
+          <mat-form-field class="me-3">
+            <mat-label>{{ entry.key }}</mat-label>
+            <mat-select [(ngModel)]="entry.value" panelClass="example-panel-override">
+              <mat-option *ngFor="let item of configTypeEnum | keyvalue" [value]="item.value">
+                {{ item.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+      </div>
+    </div>
 
+    <div style="margin-top: 10px">
+    <button class="me-2"  mat-raised-button   (click)="buildForm()" >
+      Create form
+    </button>
+    <button class="me-2"  mat-raised-button   >
+      Import
+    </button>
+    <button  mat-raised-button   >
+      Export
+    </button>
+  </div>
+  </mat-expansion-panel>
+  <mat-error>{{ error }}</mat-error>
 
-<mat-expansion-panel style="margin-bottom: 50px;" >
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Input
-    </mat-panel-title>
-    <mat-panel-description>
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <textarea name="source" id="source" cols="100" rows="10" style="display:block ;"></textarea>
-  <button type="submit" style="margin-top: 10px;">
-    Create
-  </button>
-</mat-expansion-panel>
-
-
-<mat-card >
-  <mat-card-title-group>
-    <mat-card-title>Result</mat-card-title>
-    <mat-card-subtitle>Small</mat-card-subtitle>
-    <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-  </mat-card-title-group>
-  <mat-card-content>
-    <mat-tab-group style="margin-bottom:50px ;margin-top:10px">
-      <mat-tab label="HTML">
-
-        <textarea name="source" id="source" cols="100" rows="10" class="form-control"></textarea>
-      </mat-tab>
-      <mat-tab label="Type Script">
-
-        <textarea name="source" id="source" cols="100" rows="10" class="form-control"></textarea>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card-content>
-</mat-card>
-
-
+  <mat-card class="mt-5">
+    <mat-card-title-group>
+      <mat-card-title>Result</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-icon> insert_emoticon</mat-icon>
+    </mat-card-title-group>
+    <mat-card-content>
+      <mat-tab-group style="margin-bottom: 50px; margin-top: 10px">
+        <mat-tab label="HTML">
+          <textarea name="source" id="source" cols="100" rows="10" class="form-control"></textarea>
+        </mat-tab>
+        <mat-tab label="Type Script">
+          <textarea name="source" id="source" cols="100" rows="10" class="form-control"></textarea>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
